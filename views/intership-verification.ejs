@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs')%> 
+<div class="stricky-header stricked-menu main-menu">
+ <div class="sticky-header__content"></div>
+</div>
+
+ <!--Page Header Start-->
+<section class="page-header" style="background-image: url(images/page-header-bg.jpg);background-size: cover;height: 310px;">
+ 
+ <div class="page-header__shape-1 float-bob-x"> <img src="assets/images/shapes/page-header-shape-1.png" alt=""> </div>
+ <div class="page-header__shape-2 float-bob-y"> <img src="assets/images/shapes/page-header-shape-2.png" alt=""> </div>
+ <div class="container">
+  <div class="page-header__inner">
+   <h2>Intership Verification</h2>
+  </div>
+ </div>
+</section>
+
+<section class="login-one">
+ <div class="container">
+  <div class="login-container">
+ 
+   <form>     
+    <div class="mb-3">
+     <label class="form-label">Intership ID</label>
+     <div class="input-group">
+      <input type="text" class="form-control" placeholder="Intership ID" required> <span class="input-group-text bg-white border-0"> <i class="bi bi-eye"></i>
+      </span>
+     </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary w-100">Search</button>   
+   </form>
+  </div>
+ </div>
+</section>
+
+<%- include('partials/footer.ejs')%>

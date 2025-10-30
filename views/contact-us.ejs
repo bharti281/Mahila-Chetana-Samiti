@@ -1,0 +1,125 @@
+<%- include('partials/header.ejs')%>
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+
+
+
+        <!--Page Header Start-->
+<section class="page-header" style="background-image: url(images/page-header-bg.jpg);background-size: cover;height: 310px;">
+ 
+ 
+ <div class="container">
+  <div class="page-header__inner">
+   <h2>Contact Us</h2>
+  </div>
+ </div>
+</section>
+        <!--Page Header End-->
+
+        <!--Contact Page Start-->
+        <section class="contact-page">
+            <div class="contact-page__shape-1 float-bob-y">
+                <img src="assets/images/shapes/contact-page-shape-1.png" alt="">
+            </div>
+            <div class="contact-page__shape-2 float-bob-x">
+                <img src="assets/images/shapes/contact-page-shape-2.png" alt="">
+            </div>
+            <div class="container">
+                <div class="section-title text-center sec-title-animation animation-style1">
+                    <h6 class="section-title__tagline"><span class="section-title__tagline-border"></span>
+                        OUR CONTACT
+                    </h6>
+                    <h3 class="section-title__title title-animation">Join With Us To As<br> Volenteer
+                        Contact Now!</h3>
+                </div>
+                <div class="contact-page__inner">
+                    <form class="contact-form-validated contact-page__form" action="assets/inc/sendemail.php"
+                        method="post" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-page__input-box">
+                                    <input type="text" name="name" placeholder="Your Name" required="">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-page__input-box">
+                                    <input type="email" name="Email" placeholder="Email Address" required="">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-page__input-box">
+                                    <input type="text" name="Phone" placeholder="Phone Number" required="">
+                                </div>
+                            </div>
+                           <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="contact-page__input-box">
+                                    <input type="text" name="Address" placeholder="Address" required="">
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="contact-page__input-box text-message-box">
+                                    <textarea name="message" placeholder="Messege"></textarea>
+                                </div>
+                                <div class="contact-page__btn-box">
+                                    <button type="submit" class="thm-btn"> send a
+                                        message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="result"></div>
+                </div>
+            </div>
+        </section>
+        <!--Contact Page End-->
+
+        <!--Contact Three Start-->
+        <section class="contact-three">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="contact-three__left">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d449366.55648803955!2d77.186014347044!3d28.368636862915345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4530415cd65%3A0xf458611206372168!2sGautam%20Buddha%20Nagar%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1761046553775!5m2!1sen!2sin" width="700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="contact-three__right">
+                            <ul class="contact-three__contact-list list-unstyled">
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-pin"></span>
+                                    </div>
+                                    <div class="content">
+                                        <h4>Address</h4>
+                                        <p>Gautambudh Nagar Uttar Pradesh</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-email"></span>
+                                    </div>
+                                    <div class="content">
+                                        <h4>Email Address</h4>
+                                        <p><a href="mailto:info@mahilachetnasamiti.org">info@mahilachetnasamiti.org</a></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-call"></span>
+                                    </div>
+                                    <div class="content">
+                                        <h4>Phone number</h4>
+                                        <p><a href="tel:+917373300737">+91-7373300737</a></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Contact Three End-->
+
+<%- include('partials/footer.ejs')%>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Latest Notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS (v4 or v5) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .notification-card {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            margin-bottom: 1rem;
+        }
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        .label-today { background-color: #0d6efd; color: #fff;}
+        .label-day { background-color: #198754; color: #fff;}
+        .label-ago { background-color: #ffc107; color: #212529;}
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <span class="fs-2"><span class="text-warning">&#128276;</span> Latest Notifications</span>
+        <p class="mt-2 text-secondary">Get the latest updates, job alerts, and important announcements here.</p>
+    </div>
+
+    <div class="notification-card bg-white p-4">
+        <div class="d-flex align-items-center mb-1">
+            <span class="icon text-primary"><i class="bi bi-megaphone"></i></span>
+            <h5 class="mb-0">New recruitment drive announced</h5>
+            <span class="ms-auto px-3 py-1 rounded label-today">Today</span>
+        </div>
+        <div class="ps-5 text-secondary small">
+            Applications open for various posts across states.
+        </div>
+    </div>
+
+    <div class="notification-card bg-white p-4">
+        <div class="d-flex align-items-center mb-1">
+            <span class="icon text-success"><i class="bi bi-calendar-event"></i></span>
+            <h5 class="mb-0">Interview schedule for 2025 released</h5>
+            <span class="ms-auto px-3 py-1 rounded label-day">1 day ago</span>
+        </div>
+        <div class="ps-5 text-secondary small">
+            Check your interview date and venue details.
+        </div>
+    </div>
+
+    <div class="notification-card bg-white p-4">
+        <div class="d-flex align-items-center mb-1">
+            <span class="icon text-warning"><i class="bi bi-download"></i></span>
+            <h5 class="mb-0">Download admit card</h5>
+            <span class="ms-auto px-3 py-1 rounded label-ago">3 days ago</span>
+        </div>
+        <div class="ps-5 text-secondary small">
+            Admit cards for the 2025 batch are now available.
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS (for icons, if using Bootstrap Icons)-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</body>
+</html>

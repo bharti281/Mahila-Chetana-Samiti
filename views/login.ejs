@@ -1,0 +1,54 @@
+<%- include('partials/header.ejs')%>
+
+<div class="stricky-header stricked-menu main-menu">
+ <div class="sticky-header__content"></div>
+</div>
+
+<!--Page Header Start-->
+<section class="page-header">
+ <div class="page-header__bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg);"></div>
+ <div class="page-header__shape-1 float-bob-x"> <img src="assets/images/shapes/page-header-shape-1.png" alt=""> </div>
+ <div class="page-header__shape-2 float-bob-y"> <img src="assets/images/shapes/page-header-shape-2.png" alt=""> </div>
+ <div class="container">
+  <div class="page-header__inner">
+   <h2>Login</h2>
+  </div>
+ </div>
+</section>
+<!--Page Header End-->
+
+<!--Start Login One-->
+<section class="login-one">
+ <div class="container">
+  <div class="login-container">
+ 
+   <form>
+    <div class="mb-3">
+     <label class="form-label">Username</label>
+     <input type="text" class="form-control" placeholder="User ID" required>
+    </div>
+    <div class="mb-3">
+     <label class="form-label">Password</label>
+     <div class="input-group">
+      <input type="password" class="form-control" placeholder="Password" required>
+      <span class="input-group-text bg-white border-0">
+       <i class="bi bi-eye"></i>
+      </span>
+     </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+     <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="rememberMe">
+      <label class="form-check-label" for="rememberMe">Remember me</label>
+     </div>
+     <a href="#" class="forgot-password">Forgot Password?</a>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Sign In</button>
+    <div class="signup-link"> Don’t have an account? <a href="#">SignUp</a>
+    </div>
+   </form>
+  </div>
+ </div>
+</section>
+<!--End Login One--> 
+<%- include('partials/footer.ejs')%>
