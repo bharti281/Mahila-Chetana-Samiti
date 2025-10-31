@@ -51,9 +51,9 @@
        <input type="text" class="form-control" id="mobile" placeholder="Enter your mobile" required>
       </div>
       <div class="col-md-6">
-       <label for="userid" class="form-label">User ID / Email <span class="text-danger">*</span>
+       <label for="email" class="form-label">User ID / Email <span class="text-danger">*</span>
        </label>
-       <input type="email" class="form-control" id="userid" placeholder="Enter User Id" required>
+       <input type="email" class="form-control" id="email" placeholder="Enter User Id" required>
       </div>
       <div class="col-md-6">
        <label for="pincode" class="form-label">Pincode <span class="text-danger">*</span>
@@ -102,3 +102,43 @@
  </section>
  <!--End Sign Up One--> 
  <%- include('partials/footer.ejs')%>
+ <script>
+const form = document.querySelector("#memberForm");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault(); // stop normal submit for now
+
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // Send data once (to check for validation errors)
+  const response = await fetch("/join-as-member", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json();
+
+  // Remove old errors
+  document.querySelectorAll(".text-danger").forEach(el => el.remove());
+
+  // If validation failed -> show errors and stop
+  if (!result.success && result.errors) {
+    Object.keys(result.errors).forEach(field => {
+      const input = document.querySelector(`#${field}`);
+      if (input) {
+        const errDiv = document.createElement("div");
+        errDiv.className = "text-danger";
+        errDiv.innerText = result.errors[field].msg;
+        input.insertAdjacentElement("afterend", errDiv);
+      }
+    });
+    return; // stop here, don't submit the form normally
+  }
+
+  // If no validation errors -> submit the form normally
+  form.removeEventListener("submit", arguments.callee); // avoid recursion
+  form.submit();
+});
+</script>
