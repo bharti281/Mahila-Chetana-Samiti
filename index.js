@@ -1,5 +1,3 @@
-
-console.log("Starting server...");
 import express from 'express';
 const app = express();
 import AppRoute from "./routes/app.routes.js";
@@ -11,6 +9,7 @@ app.set('view engine', 'ejs');
 connectDB();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
+app.use("/uploads", express.static("uploads"));
 
 //All Routes are here 
 app.use("/",AppRoute);

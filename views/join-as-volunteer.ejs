@@ -1,97 +1,116 @@
- <%- include('partials/header.ejs')%>
+<%- include('partials/header.ejs')%>
 
 
- <div class="stricky-header stricked-menu main-menu">
-  <div class="sticky-header__content"></div>  
- </div>
- <!-- /.stricky-header -->
-
- <!--Page Header Start-->
-<section class="page-header" style="background-image: url(images/page-header-bg.jpg);background-size: cover;height: 310px;">
- 
- <div class="page-header__shape-1 float-bob-x"> <img src="assets/images/shapes/page-header-shape-1.png" alt=""> </div>
- <div class="page-header__shape-2 float-bob-y"> <img src="assets/images/shapes/page-header-shape-2.png" alt=""> </div>
- <div class="container">
-  <div class="page-header__inner">
-   <h2>Volunteer </h2>
+  <div class="stricky-header stricked-menu main-menu">
+    <div class="sticky-header__content"></div>
   </div>
- </div>
-</section>
-<!--Page Header End-->
+  <!-- /.stricky-header -->
 
- <!--Start Sign Up One-->
- <section class="sign-up-one">
-  <div class="container">
-   <div class="container form-section">
-    <h4>Volunteer Details</h4>
-    <form>
-     <div class="row g-3">
-      <div class="col-md-6">
-       <label for="name" class="form-label">Name <span class="text-danger">*</span>
-       </label>
-       <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+  <!--Page Header Start-->
+  <section class="page-header"
+    style="background-image: url(images/page-header-bg.jpg);background-size: cover;height: 310px;">
+
+    <div class="page-header__shape-1 float-bob-x"> <img src="assets/images/shapes/page-header-shape-1.png" alt="">
+    </div>
+    <div class="page-header__shape-2 float-bob-y"> <img src="assets/images/shapes/page-header-shape-2.png" alt="">
+    </div>
+    <div class="container">
+      <div class="page-header__inner">
+        <h2>Volunteer </h2>
       </div>
- 
-      <div class="col-md-6">
-       <label for="gender" class="form-label">Gender <span class="text-danger">*</span>
-       </label>
-       <select class="form-select" id="gender" required>
-        <option selected disabled>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-       </select>
-      </div>
-      <div class="col-md-6">
-       <label for="mobile" class="form-label">Mobile No <span class="text-danger">*</span>
-       </label>
-       <input type="text" class="form-control" id="mobile" placeholder="Enter your mobile" required>
-      </div>
-      <div class="col-md-6">
-       <label for="userid" class="form-label">User ID / Email <span class="text-danger">*</span>
-       </label>
-       <input type="email" class="form-control" id="userid" placeholder="Enter User Id" required>
-      </div>
-      <div class="col-md-6">
-       <label for="pincode" class="form-label">Pincode <span class="text-danger">*</span>
-       </label>
-       <input type="text" class="form-control" id="pincode" placeholder="Enter Pincode" required>
-      </div>
-      <div class="col-md-6">
-       <label for="state" class="form-label">State <span class="text-danger">*</span>
-       </label>
-       <input type="text" class="form-control" id="state" placeholder="Enter your state" required>
-      </div>
-      <div class="col-md-6">
-       <label for="city" class="form-label">City <span class="text-danger">*</span>
-       </label>
-       <input type="text" class="form-control" id="city" placeholder="Enter your city" required>
-      </div>
-      <div class="col-md-6">
-       <label for="address" class="form-label">Address <span class="text-danger">*</span>
-       </label>
-       <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
-      </div>
-      <div class="col-md-6">
-       <label for="profile" class="form-label">Profile Photo (Optional)</label>
-       <input type="file" class="form-control" id="profile">
-       <div class="note">Note: Image Size 512*512</div>
-      </div>
- 
-      <div class="col-md-6">
-       <label for="password" class="form-label">Password <span class="text-danger">*</span>
-       </label>
-       <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
-       <div class="note">Choose a strong password</div>
-      </div>
- 
-     </div>
-     <div class="text-center mt-4">
-      <button type="submit" class="btn btn-submit">SUBMIT APPLICATION</button>
-     </div>
-     <div class="login-link"> Already have an account? <a href="#">Login Now</a>
-     </div>
-    </form>
-   </div>
- </section>
- <!--End Sign Up One-->
-  <%- include('partials/header.ejs')%>
+    </div>
+  </section>
+  <!--Page Header End-->
+
+  <!--Start Sign Up One-->
+  <section class="sign-up-one">
+    <div class="container">
+      <%if(errors.length>0){%>
+        <div class="row mb-3">
+          <div class="col-6">
+            <ul class="alert alert-danger" style="list-style-position: inside;">
+              <% errors.forEach(error=>{%>
+                <li>
+                  <%=error.msg%>
+                </li>
+                <% }) %>
+            </ul>
+          </div>
+        </div>
+        <%}%>
+          <div class="container form-section">
+            <h4>Volunteer Details</h4>
+            <form action="/join-as-volunteer" method="post" enctype="multipart/form-data">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Name <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required
+                    value="<%= oldData ? oldData.name : '' %>">
+                </div>
+
+                <div class="col-md-6">
+                  <label for="gender" class="form-label">Gender <span class="text-danger">*</span>
+                  </label>
+                  <select class="form-select" id="gender" name="gender" required>
+                    <option selected disabled value="Male" <%=oldData && oldData.gender==='Male' ? 'selected' : '' %>
+                      >Male</option>
+                    <option value="Female" <%=oldData && oldData.gender==='Female' ? 'selected' : '' %>>Female</option>
+                    <option value="Other" <%=oldData && oldData.gender==='Other' ? 'selected' : '' %>>Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="mobile" class="form-label">Mobile No <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter your mobile" required  value="<%= oldData ? oldData.mobile : '' %>"> 
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">User  Email <span class="text-danger">*</span>
+                  </label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Enter User Email" required  value="<%= oldData ? oldData.email : '' %>">
+                </div>
+                <div class="col-md-6">
+                  <label for="pincode" class="form-label">Pincode <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode" required  value="<%= oldData ? oldData.pincode : '' %>">
+                </div>
+                <div class="col-md-6">
+                  <label for="state" class="form-label">State <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="state" name="state" placeholder="Enter your state" required value="<%= oldData ? oldData.state : '' %>">
+                </div>
+                <div class="col-md-6">
+                  <label for="city" class="form-label">City <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city" required value="<%= oldData ? oldData.city : '' %>">
+                </div>
+                <div class="col-md-6">
+                  <label for="address" class="form-label">Address <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="Enter your address" required value="<%= oldData ? oldData.address : '' %>">
+                </div>
+                <div class="col-md-6">
+                  <label for="profile" class="form-label">Profile Photo (Optional)</label>
+                  <input type="file" class="form-control" id="profile" name="profile">
+                  <div class="note">Note: Image Size 512*512</div>
+                </div>
+                <input type="hidden" name="registerType" value="join-as-volunteer">
+
+                <div class="col-md-6">
+                  <label for="password" class="form-label">Password <span class="text-danger">*</span>
+                  </label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+                  <div class="note">Choose a strong password</div>
+                </div>
+
+              </div>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-submit">SUBMIT APPLICATION</button>
+              </div>
+              <div class="login-link"> Already have an account? <a href="#">Login Now</a>
+              </div>
+            </form>
+          </div>
+  </section>
+  <!--End Sign Up One-->
+  <%- include('partials/footer.ejs')%>
