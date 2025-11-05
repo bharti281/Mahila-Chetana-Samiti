@@ -3,7 +3,7 @@ const showMainPage = (req,res)=>{
 }
 
 const showLoginPage = (req, res) => {
-  res.render("login");
+  res.render("login",{ errors: 0});
 };
 
 //About us page

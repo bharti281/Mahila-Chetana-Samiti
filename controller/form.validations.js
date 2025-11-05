@@ -13,10 +13,10 @@ export const validateMemberForm = [
   body("gender").notEmpty().withMessage("Gender is required"),
 
   body("mobile")
-  .trim()
-  .notEmpty().withMessage("Mobile number is required")
-  .isLength({ min: 10, max: 10 }).withMessage("Mobile number should be exactly 10 digits")
-  .isNumeric().withMessage("Mobile number should contain only numbers"),
+    .trim()
+    .notEmpty().withMessage("Mobile number is required")
+    .isLength({ min: 10, max: 10 }).withMessage("Mobile number should be exactly 10 digits")
+    .isNumeric().withMessage("Mobile number should contain only numbers"),
 
   body("email")
     .notEmpty()
@@ -24,11 +24,11 @@ export const validateMemberForm = [
     .isEmail()
     .withMessage("Invalid email"),
 
-body("pincode")
-  .trim()
-  .notEmpty().withMessage("Pincode is required")
-  .isLength({ min: 6, max: 6 }).withMessage("Pincode must be exactly 6 digits")
-  .isNumeric().withMessage("Pincode should contain only numbers"),
+  body("pincode")
+    .trim()
+    .notEmpty().withMessage("Pincode is required")
+    .isLength({ min: 6, max: 6 }).withMessage("Pincode must be exactly 6 digits")
+    .isNumeric().withMessage("Pincode should contain only numbers"),
 
   body("state")
     .notEmpty()
@@ -47,10 +47,26 @@ body("pincode")
     .withMessage("Address is required")
     .isLength({ min: 6 })
     .withMessage("Address at least 6 character long"),
-    
+
   body("password")
     .notEmpty()
     .withMessage("Password is required")
     .isLength({ min: 8 })
     .withMessage("Password at least 8 character long"),
+];
+
+export const loginFormValidation = [
+
+  body("email")
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Invalid email"),
+
+  body("password")
+    .notEmpty()
+    .withMessage("Password is required")
+    .isLength({ min: 8 })
+    .withMessage("Password at least 8 character long"),
+
 ];

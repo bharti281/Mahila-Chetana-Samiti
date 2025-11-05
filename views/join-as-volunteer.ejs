@@ -65,7 +65,7 @@
                   <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter your mobile" required  value="<%= oldData ? oldData.mobile : '' %>"> 
                 </div>
                 <div class="col-md-6">
-                  <label for="email" class="form-label">User  Email <span class="text-danger">*</span>
+                  <label for="email" class="form-label">User ID / Email<span class="text-danger">*</span>
                   </label>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Enter User Email" required  value="<%= oldData ? oldData.email : '' %>">
                 </div>
@@ -107,7 +107,7 @@
               <div class="text-center mt-4">
                 <button type="submit" class="btn btn-submit">SUBMIT APPLICATION</button>
               </div>
-              <div class="login-link"> Already have an account? <a href="#">Login Now</a>
+              <div class="login-link"> Already have an account? <a href="/login">Login Now</a>
               </div>
             </form>
           </div>

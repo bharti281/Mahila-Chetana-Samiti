@@ -3,6 +3,8 @@ const router = express.Router();
 import * as showViews from "../controller/show.views.controller.js";
 import * as userSignup from "../controller/user.signup.js";
 import { validateMemberForm } from "../controller/form.validations.js";
+import { loginFormValidation } from "../controller/form.validations.js";
+import{login} from "../controller/user.login.controller.js";
 import upload from "../middleware/multer.upload.js";
 
 
@@ -75,12 +77,16 @@ router.get("/contact-us", showViews.showContactUs);
 
 
 //All post request are listed here
-// router.post("/join-as-member",validateMemberForm,userSignup.joinAsMember)
-// Memory storage
 
+
+//All register route here  ------------->
 router.post("/join-as-member",upload.fields([{ name: "profile", maxCount: 1 },{ name: "aadhar", maxCount: 1 },]),validateMemberForm,userSignup.register
 );
 router.post("/join-as-volunteer",upload.fields([{ name: "profile", maxCount: 1 }]),validateMemberForm,userSignup.register);
 router.post("/join-as-fundraiser",upload.fields([{ name: "profile", maxCount: 1 }]),validateMemberForm,userSignup.register);
+
+// Login route here 
+router.post("/login", loginFormValidation,login)
+
 
 export default router
